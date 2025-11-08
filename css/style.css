@@ -102,7 +102,7 @@ body::after {
   line-height: 1.5;
   user-select: none;
   opacity: 0.4;
-  aria-hidden: true;
+  /* Note: aria-hidden is an HTML attribute; set aria-hidden="true" on the element in HTML if needed */
 }
 
 .binary-code span {
@@ -1626,6 +1626,113 @@ p {
   .poster-note {
     font-size: 0.75rem;
     margin-top: 0.6rem;
+  }
+}
+
+/* ===== Mobile Performance Optimizations ===== */
+@media (max-width: 768px) {
+  /* Disable heavy background animations on mobile */
+  body::before {
+    animation: none;
+    opacity: 0.2;
+    filter: blur(80px);
+  }
+  
+  body::after {
+    animation: none;
+    opacity: 0.3;
+  }
+  
+  /* Simplify particle animations */
+  .data-particles span {
+    animation-duration: 20s !important;
+    opacity: 0.4;
+  }
+  
+  /* Hide some particles on mobile - keep only first 8 */
+  .data-particles span:nth-child(n+9) {
+    display: none;
+  }
+  
+  /* Hide binary code on mobile for performance */
+  .binary-code {
+    display: none;
+  }
+  
+  /* Hide AI network on mobile */
+  .ai-network {
+    display: none;
+  }
+  
+  /* Disable neural network animation */
+  .data-particles::before {
+    animation: none;
+    opacity: 0.2;
+  }
+  
+  /* Disable data streams on mobile */
+  .data-particles::after {
+    animation: none;
+    opacity: 0.2;
+  }
+  
+  /* Simplify button animations */
+  .btn {
+    transition: all 0.2s ease;
+  }
+  
+  .btn:hover::before {
+    display: none;
+  }
+  
+  /* Reduce card animations */
+  .event-card,
+  .events-grid .event-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .event-card:hover,
+  .events-grid .event-card:hover {
+    transform: translateY(-3px) scale(1);
+  }
+  
+  /* Disable gradient animations */
+  h1 {
+    animation: none;
+    background: #00e0ff;
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+  
+  /* Simplify hover effects */
+  .link::before,
+  .btn::before {
+    display: none;
+  }
+  
+  /* Disable border glow animation */
+  @keyframes borderGlow {
+    0%, 100% {
+      opacity: 0.8;
+    }
+  }
+  
+  /* Disable pulse animation on CTA */
+  .btn.primary-glow {
+    animation: none;
+  }
+  
+  /* Simplify scroll reveal */
+  .scroll-reveal {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  
+  /* Disable backdrop filter on older mobile devices */
+  .event-card,
+  .content-card,
+  .info-card {
+    backdrop-filter: none;
+    background: rgba(26, 26, 64, 0.98);
   }
 }
 
