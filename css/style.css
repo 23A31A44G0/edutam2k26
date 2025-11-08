@@ -1717,11 +1717,20 @@ p {
   
   .events-grid {
     grid-template-columns: 1fr;
-    gap: 1.2rem;
+    gap: 1rem;
   }
   
   .events-grid .event-card {
-    padding: 1.5rem;
+    padding: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .events-grid .event-card h3 {
+    font-size: 1.2rem;
+  }
+  
+  .events-grid .event-card p {
+    font-size: 0.9rem;
   }
   
   .hero h1 {
@@ -1959,11 +1968,18 @@ p {
     animation: none;
     opacity: 0.2;
     filter: blur(80px);
+    will-change: auto;
   }
   
   body::after {
     animation: none;
     opacity: 0.3;
+    will-change: auto;
+  }
+  
+  /* Remove will-change from all elements for mobile performance */
+  * {
+    will-change: auto !important;
   }
   
   /* Simplify particle animations */
@@ -2017,18 +2033,26 @@ p {
   .event-card,
   .events-grid .event-card {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-    background: rgba(26, 26, 64, 0.95);
+    background: rgba(26, 26, 64, 0.98) !important;
+    backdrop-filter: none !important;
+    overflow: visible;
   }
   
   .event-card:hover,
   .events-grid .event-card:hover {
-    transform: translateY(-3px) scale(1);
+    transform: none;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
   }
   
-  /* Disable rotating elements on event cards for mobile */
+  /* Completely hide rotating elements on event cards for mobile */
   .events-grid .event-card::after {
-    animation: none;
-    opacity: 0.08;
+    display: none !important;
+  }
+  
+  /* Disable border gradient animation on event cards */
+  .events-grid .event-card::before {
+    animation: none !important;
+    opacity: 0.5;
   }
   
   /* Disable routing animations on info cards for mobile */
@@ -2073,7 +2097,13 @@ p {
   
   /* Simplify scroll reveal */
   .scroll-reveal {
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  
+  .scroll-reveal.revealed {
+    animation: none !important;
   }
   
   /* Disable backdrop filter on older mobile devices */
