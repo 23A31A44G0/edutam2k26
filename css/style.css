@@ -1119,6 +1119,7 @@ h2:hover {
   line-height: 1.8;
   margin-bottom: 1.2rem;
   font-size: 1.05rem;
+  text-align: left;
 }
 
 /* List styling */
@@ -2205,3 +2206,4 @@ p {
   color: #00e0ff;
   text-decoration: underline;
 }
+
