@@ -1190,8 +1190,8 @@ h2:hover {
               filter 0.3s ease;
   cursor: pointer;
   background: linear-gradient(135deg, #1a1a40, #0d0d2b);
-  min-height: 400px;
-  object-fit: cover;
+ object-fit: contain;
+  display: block;
 }
 
 .event-poster img:hover {
@@ -2206,4 +2206,5 @@ p {
   color: #00e0ff;
   text-decoration: underline;
 }
+
 
