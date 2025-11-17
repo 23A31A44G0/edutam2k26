@@ -1209,7 +1209,7 @@ h2:hover {
 }
 
 .event-poster img[src*="poster.jpg"]::before {
-  content: "Event Poster\AComming Soon";
+  content: "Event Poster\AComing Soon";
   white-space: pre;
   position: absolute;
   color: #00e0ff;
@@ -2206,5 +2206,6 @@ p {
   color: #00e0ff;
   text-decoration: underline;
 }
+
 
 
