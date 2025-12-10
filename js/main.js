@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded',function(){
   var revealObserver = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
       if (entry.isIntersecting) {
-        entry.target.classList.add('revealed');
+        entry.target.classList.add('active');
       }
     });
   }, {
@@ -53,8 +53,8 @@ document.addEventListener('DOMContentLoaded',function(){
     rootMargin: '0px 0px -50px 0px'
   });
 
-  // Observe all elements with scroll-reveal class
-  document.querySelectorAll('.scroll-reveal').forEach(function(el) {
+  // Observe all elements with reveal class
+  document.querySelectorAll('.reveal').forEach(function(el) {
     revealObserver.observe(el);
   });
 });
